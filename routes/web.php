@@ -1,6 +1,6 @@
 <?php
 
-// added for routing
+// Added
 use App\Http\Controllers\ChirpController;
 
 use App\Http\Controllers\ProfileController;
@@ -27,9 +27,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// added for routing urls
+// Added
 Route::resource('chirps', ChirpController::class)
-    ->only(['index', 'store', 'update'])
+    ->only(['index', 'store', 'update', 'destroy'])
     ->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';

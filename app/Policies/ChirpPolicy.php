@@ -45,7 +45,9 @@ class ChirpPolicy
      */
     public function delete(User $user, Chirp $chirp): bool
     {
-        //
+        // For delete, it is the same as update. Only the chirp user can delete
+        // So instead of repeating the same code as update, we just call update
+        return $this->update($user, $chirp);
     }
 
     /**

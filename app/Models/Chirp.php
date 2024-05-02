@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 // added
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+// added for notification (add the event php)
+use App\Events\ChirpCreated;
 
 class Chirp extends Model
 {
@@ -14,6 +16,11 @@ class Chirp extends Model
     //added
     protected $fillable = [
         'message',
+    ];
+
+    // added for notification
+    protected $dispatchesEvents = [
+        'created' => ChirpCreated::class,
     ];
 
     // added
